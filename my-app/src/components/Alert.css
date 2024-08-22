@@ -1,0 +1,26 @@
+.alert {
+  margin: 8px;
+  padding: 12px 16px;
+  border-radius: 4px;
+  color: white;
+}
+
+.alert.info {
+  background-color: blue;
+}
+
+.alert.success {
+  background-color: green;
+}
+
+.alert.error {
+  background-color: red;
+}
+
+.alert.warning {
+  background-color: orange;
+}
+
+.is-outlined {
+  border: 2px solid black;
+}
