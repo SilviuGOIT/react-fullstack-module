@@ -1,6 +1,7 @@
 import "./App.css";
 import Tutors from "./components/Tutors/Tutors";
 import University from "./components/University/University";
+import Sidebar from "./components/Sidebar/Sidebar";
 
 export default function App() {
   const tutors = [
@@ -25,9 +26,12 @@ export default function App() {
   ];
 
   return (
-    <>
-      <Tutors list={tutors} />
-      <University />
-    </>
+    <main className="App">
+      <Sidebar />
+      <section className="container">
+        <University />
+        <Tutors list={tutors} />
+      </section>
+    </main>
   );
 }

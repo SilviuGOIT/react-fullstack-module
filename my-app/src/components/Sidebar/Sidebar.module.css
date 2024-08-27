@@ -1,0 +1,27 @@
+.sidebar {
+  background: #fefefe;
+  height: 100vh;
+  width: 100%;
+}
+
+.sidebarBrandBox {
+  background: #161d2a;
+  height: 80px;
+}
+
+.sidebar ul {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  list-style-type: none;
+}
+
+.sidebar li {
+  color: #ff6b0a;
+  font-size: 14px;
+  line-height: 24px;
+  letter-spacing: 1.25px;
+  font-weight: 700;
+  text-transform: uppercase;
+  cursor: pointer;
+}

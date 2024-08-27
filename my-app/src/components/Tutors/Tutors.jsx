@@ -22,9 +22,9 @@ class Tutors extends Component {
   render() {
     const { list } = this.props;
     return (
-      <section>
+      <section className="section">
         <h1>Tutors</h1>
-        <div>{this.renderList(list)}</div>
+        <div className={styles.tutorsList}>{this.renderList(list)}</div>
       </section>
     );
   }

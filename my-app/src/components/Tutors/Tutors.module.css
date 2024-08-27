@@ -1,0 +1,16 @@
+.tutorsList {
+  background: white;
+  padding: 16px;
+}
+
+.tutorsListItem {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 8px;
+}
+
+.address {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
