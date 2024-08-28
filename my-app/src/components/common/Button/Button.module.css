@@ -1,0 +1,14 @@
+.button {
+  padding: 8px 16px;
+  background-color: orange;
+  font-size: 14px;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #fff;
+  cursor: pointer;
+}
+
+.button:hover,
+.button:focus {
+  background-color: rebeccapurple;
+}
