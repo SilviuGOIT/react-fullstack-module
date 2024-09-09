@@ -1,47 +1,40 @@
-import { Component } from "react";
+import { useEffect } from "react";
 import Button from "../../common/Button/Button";
 import PropTypes from "prop-types";
 
-export default class AddTutor extends Component {
-  static propTypes = { onFormSubmit: PropTypes.func };
-
-  componentDidMount() {
-    console.log("Add Tutors Mounting...");
-  }
-
-  componentDidUpdate() {
-    console.log("Add Tutors Updating....");
-  }
-  componentWillUnmount() {
-    console.log("Add tutors Unmounting...");
-  }
-
-  shouldComponentUpdate() {
-    return true;
-  }
-
-  state = {
-    surname: "",
-    name: "",
-    phone: "",
-    email: "",
-    city: "",
-  };
+export default function AddTutor {
+  
+  const [name, setName] = useState('');
+  const [surname, setSurname] = useState('');
+  const [phone, setPhone] = useState('');
+  const [email, setEmail] = useState('');
+  const [city, setCity] = useState('');
+  
+  useEffect(()=>{
+    return () => {
+      console.log("Add tutors unmounting")
+    }
+  },[])
 
   handleSubmit = (e) => {
     e.preventDefault();
-    this.props.onFormSubmit(this.state);
+    onFormSubmit();
   };
 
   handleChange = (e) => {
     const { name, value } = e.target;
-    this.setState({ [name]: value });
+    if(name === 'surname') {
+      setSurname({ [name]: value });
+    } else if (name === 'name') {
+      //............ la fel pentru toate state-urile
+    }
+    
   };
 
-  render() {
-    const { surname, name, phone, email, city } = this.state;
+ 
+   
     return (
-      <form className="form" onSubmit={this.handleSubmit}>
+      <form className="form" onSubmit={handleSubmit}>
         <h1>Add tutor</h1>
         <label>
           <span>Surname</span>
@@ -50,7 +43,7 @@ export default class AddTutor extends Component {
             name="surname"
             value={surname}
             placeholder="Surname"
-            onChange={this.handleChange}
+            onChange={handleChange}
             required
           />
         </label>
@@ -61,7 +54,7 @@ export default class AddTutor extends Component {
             name="name"
             value={name}
             placeholder="name"
-            onChange={this.handleChange}
+            onChange={handleChange}
             required
           />
         </label>
@@ -72,7 +65,7 @@ export default class AddTutor extends Component {
             name="phone"
             value={phone}
             placeholder="Phone"
-            onChange={this.handleChange}
+            onChange={handleChange}
             required
           />
         </label>
@@ -83,7 +76,7 @@ export default class AddTutor extends Component {
             name="city"
             value={city}
             placeholder="City"
-            onChange={this.handleChange}
+            onChange={handleChange}
             required
           />
         </label>
@@ -94,7 +87,7 @@ export default class AddTutor extends Component {
             name="email"
             value={email}
             placeholder="Email"
-            onChange={this.handleChange}
+            onChange={handleChange}
             required
           />
         </label>
@@ -102,4 +95,8 @@ export default class AddTutor extends Component {
       </form>
     );
   }
+
+
+AddTutor.propTypes = {
+  onFormSubmit: PropTypes.func
 }

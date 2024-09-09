@@ -1,41 +1,30 @@
-import { Component } from "react";
 import styles from "./Tutors.module.css";
-import PropTypes from "prop-types";
 import Button from "../common/Button/Button";
 import AddTutor from "./AddTutor/AddTutor";
+import { useEffect, useState } from "react";
 
 const TUTORS_KEY = "tutors";
 
-class Tutors extends Component {
-  componentDidMount() {
+const Tutors = () => {
+  const [isAddFormVisible, setIsAddFormVisible] = useState(false);
+  const [list, setList] = useState([]);
+
+  useEffect(() => {
     const data = localStorage.getItem(TUTORS_KEY);
     try {
       if (data) {
-        this.setState({
-          list: JSON.parse(data),
-        });
+        setList(JSON.parse(data));
       }
     } catch (error) {
       console.log(error);
     }
-  }
+  }, []); //componentDidMount
 
-  componentDidUpdate(prevProps, prevState) {
-    if (prevState?.list.length !== this.state.list.length) {
-      localStorage.setItem(TUTORS_KEY, JSON.stringify(this.state.list));
-    }
-  }
+  useEffect(() => {
+    localStorage.setItem(TUTORS_KEY, JSON.stringify(list));
+  }, [list]); // componentDidUpdate
 
-  componentWillUnmount() {
-    console.log("Tutors Unmounting...");
-  }
-
-  state = {
-    isAddFormVisible: false,
-    list: [],
-  };
-
-  renderList = (items) => {
+  const renderList = (items) => {
     return items.map((el) => {
       return (
         <>
@@ -53,8 +42,8 @@ class Tutors extends Component {
     });
   };
 
-  handleTutor = (data) => {
-    const newId = this.state.list.length > 0 ? this.state.list.length : 0;
+  const handleTutor = (data) => {
+    const newId = list.length > 0 ? list.length : 0;
     const tutorToAdd = {
       id: newId,
       firstName: data.surname,
@@ -63,37 +52,28 @@ class Tutors extends Component {
       email: data.email,
       city: data.city,
     };
-    this.setState((prevState) => {
-      return {
-        list: [...prevState.list, tutorToAdd],
-        isAddFormVisible: false,
-      };
+    setList((prevState) => {
+      return [...prevState, tutorToAdd];
     });
+    setIsAddFormVisible(false);
   };
 
-  render() {
-    const { isAddFormVisible, list } = this.state;
-    return (
-      <>
-        <section className="section">
-          <h1>Tutors</h1>
-          <div className={styles.tutorsList}>{this.renderList(list)}</div>
-        </section>
-        {isAddFormVisible && <AddTutor onFormSubmit={this.handleTutor} />}
-        <Button
-          action={() => {
-            this.setState({ isAddFormVisible: true });
-          }}
-        >
-          Add Tutors
-        </Button>
-      </>
-    );
-  }
-}
-
-Tutors.propTypes = {
-  list: PropTypes.array,
+  return (
+    <>
+      <section className="section">
+        <h1>Tutors</h1>
+        <div className={styles.tutorsList}>{renderList(list)}</div>
+      </section>
+      {isAddFormVisible && <AddTutor onFormSubmit={handleTutor} />}
+      <Button
+        action={() => {
+          setIsAddFormVisible(true);
+        }}
+      >
+        Add Tutors
+      </Button>
+    </>
+  );
 };
 
 export default Tutors;
