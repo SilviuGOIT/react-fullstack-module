@@ -5,6 +5,21 @@ import PropTypes from "prop-types";
 export default class AddTutor extends Component {
   static propTypes = { onFormSubmit: PropTypes.func };
 
+  componentDidMount() {
+    console.log("Add Tutors Mounting...");
+  }
+
+  componentDidUpdate() {
+    console.log("Add Tutors Updating....");
+  }
+  componentWillUnmount() {
+    console.log("Add tutors Unmounting...");
+  }
+
+  shouldComponentUpdate() {
+    return true;
+  }
+
   state = {
     surname: "",
     name: "",

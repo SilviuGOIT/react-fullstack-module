@@ -4,30 +4,37 @@ import PropTypes from "prop-types";
 import Button from "../common/Button/Button";
 import AddTutor from "./AddTutor/AddTutor";
 
+const TUTORS_KEY = "tutors";
+
 class Tutors extends Component {
+  componentDidMount() {
+    const data = localStorage.getItem(TUTORS_KEY);
+    try {
+      if (data) {
+        this.setState({
+          list: JSON.parse(data),
+        });
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    if (prevState?.list.length !== this.state.list.length) {
+      localStorage.setItem(TUTORS_KEY, JSON.stringify(this.state.list));
+    }
+  }
+
+  componentWillUnmount() {
+    console.log("Tutors Unmounting...");
+  }
+
   state = {
     isAddFormVisible: false,
-    list: [
-      {
-        id: 0,
-        firstName: "John",
-        lastName: "Smith",
-        phone: "+1 302-865-7394",
-        email: "johnsmith@goit.global",
-        city: "New York",
-        options: "Group creation",
-      },
-      {
-        id: 1,
-        firstName: "Antonio",
-        lastName: "García",
-        phone: "+34 456 890 302",
-        email: "antonio.garcia@goit.global",
-        city: "Madrid",
-        options: "Group creation, editing teacher profiles",
-      },
-    ],
+    list: [],
   };
+
   renderList = (items) => {
     return items.map((el) => {
       return (

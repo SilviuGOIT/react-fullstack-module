@@ -2,6 +2,7 @@ import "./App.css";
 import Tutors from "./components/Tutors/Tutors";
 import University from "./components/University/University";
 import Sidebar from "./components/Sidebar/Sidebar";
+import Cities from "./components/Cities/Cities";
 
 export default function App() {
   return (
@@ -10,6 +11,7 @@ export default function App() {
       <section className="container">
         <University />
         <Tutors />
+        <Cities />
       </section>
     </main>
   );
