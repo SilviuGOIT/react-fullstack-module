@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import styles from "./Sidebar.module.css";
 import { HiAcademicCap, HiBookOpen } from "react-icons/hi";
 
@@ -7,11 +8,13 @@ const Sidebar = () => {
       id: "1",
       name: "University",
       icon: <HiBookOpen />,
+      path: "/",
     },
     {
       id: "2",
       name: "Faculties",
       icon: <HiAcademicCap />,
+      path: "/faculties",
     },
   ];
 
@@ -21,7 +24,9 @@ const Sidebar = () => {
       <ul>
         {menuItems.map((item) => (
           <li key={item.id}>
-            {item.icon} {item.name}
+            <Link key={item.id} to={item.path}>
+              {item.icon} {item.name}
+            </Link>
           </li>
         ))}
       </ul>
