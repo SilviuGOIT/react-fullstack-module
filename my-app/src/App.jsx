@@ -69,3 +69,9 @@ export default function App() {
 // https://medium.com/@stheodorejohn/useparams-hook-in-react-router-a-real-world-example-493848f7b7
 // https://stackademic.com/blog/practical-steps-on-how-to-apply-the-useparams-hook-of-react-router-5cd43a2106b2
 // documentatie context -> https://react.dev/reference/react/createContext
+
+// lectia 11
+// https://www.youtube.com/watch?v=_shA5Xwe8_4&ab_channel=Fireship
+// https://react-redux.js.org/tutorials/quick-start
+// exemplu counter -> https://codesandbox.io/p/sandbox/github/reduxjs/redux-essentials-counter-example/tree/master/?file=%2Fsrc%2Fapp%2Fstore.js%3A5%2C3-7%2C5&from-embed
+// https://chromewebstore.google.com/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd?hl=en
