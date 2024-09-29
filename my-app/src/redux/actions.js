@@ -1,4 +1,4 @@
-export const setFaculatiesSearchTerm = (value) => {
+export const setFacultiesSearchTerm = (value) => {
   return {
     type: "faculties/setSearchTerm",
     payload: value,
