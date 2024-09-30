@@ -1,0 +1,10 @@
+.alert {
+    background: #e04040;
+    color: white;
+    border: 1px solid #881d1d;
+    border-radius: 16px;
+    padding: 16px;
+    margin-top: 8px;
+    margin-bottom: 8px;
+  }
+  

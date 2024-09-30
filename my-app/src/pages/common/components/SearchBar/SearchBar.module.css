@@ -1,0 +1,26 @@
+.search {
+    width: 100%;
+    max-width: 300px;
+    display: grid;
+    grid-template-columns: 1fr 32px;
+    align-items: center;
+    justify-items: stretch;
+    margin: 8px 0px;
+    position: relative;
+  }
+  
+  .search input {
+    padding: 8px 16px;
+    border: 1px solid #424242;
+    outline: none;
+  }
+  
+  .search .icon {
+    background: white;
+    z-index: 10;
+    position: absolute;
+    right: 42px;
+    top: 6px;
+    padding: 0 4px;
+  }
+  

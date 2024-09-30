@@ -1,13 +1,21 @@
-# React + Vite
+# react-fullstack
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+React Fullstack #4 2023
 
-Currently, two official plugins are available:
+## Branch/Lectie
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh]
+Fiecare lectie va avea branch-ul ei, care va fi numita:
 
+- lesson-1
+- lesson-2
+  etc.
 
+## Crearea unei aplicatii
 
-<!-- https://www.youtube.com/watch?v=Tn6-PIqc4UM
-https://www.youtube.com/watch?v=HyWYpM_S-2c -->
+- rulati comanda `npm create vite@latest`
+- introduceti numele folderului, de ex 'react-app'
+- Alegeti React folosind sagetile -> Enter
+- Alegeti varianta Javascript
+- rulati cd react-app
+- rulati npm install
+- rulati npm run dev

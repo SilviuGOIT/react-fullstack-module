@@ -1,15 +1,24 @@
+import { Suspense, createContext, useState } from "react";
+import Sidebar from "./common/components/Sidebar/Sidebar";
 import { Outlet } from "react-router-dom";
-import Sidebar from "../components/Sidebar/Sidebar";
+
+export const ColorContext = createContext('green')
 
 const SharedLayout = () => {
-  return (
-    <main className="App">
-      <Sidebar />
-      <section className="container">
-        <Outlet />
-      </section>
-    </main>
-  );
-};
+    const [color] = useState('verde')
+
+    return (
+        <ColorContext.Provider value={color}>
+            <main className='App'>
+                <Sidebar />
+                <section className="container">
+                    <Suspense>
+                        <Outlet/>
+                    </Suspense>
+                </section>
+            </main>
+        </ColorContext.Provider>
+    )
+}
 
 export default SharedLayout;

@@ -1,0 +1,20 @@
+.itemsList {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.listItem {
+    display: flex;
+    width: 370px;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px;
+}
+
+.deleteModalControls {
+    display: flex;
+    gap: 16px;
+    margin-top: 16px;
+    justify-content: center;
+}

@@ -1,0 +1,54 @@
+{
+  "tutors": [
+    {
+      "id": 0,
+      "firstName": "Stephen",
+      "lastName": "Smith",
+      "telephone": "123456",
+      "email": "john@smith.com",
+      "city": "New York",
+      "role": "Member"
+    },
+    {
+      "id": 1,
+      "firstName": "Sergiu",
+      "lastName": "Smith",
+      "telephone": "123456",
+      "email": "john@smith.com",
+      "city": "New York",
+      "role": "Member"
+    }
+  ],
+  "cities": [
+    {
+      "id": 2,
+      "name": "San Francisco"
+    },
+    {
+      "id": 3,
+      "name": "Los Angeles"
+    }
+  ],
+  "faculties": [
+    {
+      "id": 1,
+      "name": "Faculty of Maths"
+    },
+    {
+      "id": 2,
+      "name": "Faculty of Physics",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+    },
+    {
+      "id": 3,
+      "name": "Faculty of Science",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+    },
+    {
+      "id": 4,
+      "name": "Faculty",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "history": "What a rich history"
+    }
+  ]
+}

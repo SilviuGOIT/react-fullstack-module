@@ -1,0 +1,50 @@
+.alert {
+    z-index: 3000;
+    position: fixed;
+    top: 16px;
+    left: 50%;
+    transform: translate(-50%, 50%) scale(1);
+    background: #e04040;
+    color: white;
+    border: 1px solid #881d1d;
+    border-radius: 16px;
+    animation: pulse 2s infinite;
+  }
+  
+  @keyframes pulse {
+    0% {
+      transform: translate(-50%, 50%) scale(0.95);
+    }
+  
+    70% {
+      transform: translate(-50%, 50%) scale(1);
+    }
+  
+    100% {
+      transform: translate(-50%, 50%) scale(0.95);
+    }
+  }
+  
+  .content {
+    position: relative;
+    padding: 16px;
+  }
+  
+  .close {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 16px;
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    cursor: pointer;
+    width: 24px;
+    height: 24px;
+  }
+  
+  .close:hover {
+    background: #fdfdfd;
+    color: #e04040;
+  }
+  

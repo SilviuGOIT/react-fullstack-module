@@ -1,77 +1,49 @@
-import "./App.css";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
-import SharedLayout from "./pages/SharedLayout";
-import Homepage from "./pages/Homepage";
-import NotFoundPage from "./pages/NotFoundPage";
-import FacultiesPage from "./pages/FacultiesPage";
-import FacultyDescription from "./components/Faculties/FacultyDescription";
-import FacultyHistory from "./components/Faculties/FacultyHistory";
-import FacultyPage from "./pages/FacultyPage";
-// import { useEffect, useState } from "react";
+import './App.css'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import SharedLayout from './pages/SharedLayout'
+import UniversitiesPage from './pages/universities/UniversitiesPage'
+import NotFoundPage from './pages/NotFoundPage'
+import { lazy } from 'react'
 
-export default function App() {
-  // const [value, setValue] = useState(0);
+// Importurile cu lazy (dinamice), trebuie sa fie dupa cele normale
 
-  // useEffect(() => {
-  //   console.log("Mouting phase: same when componentDidMount runs");
-  // }, []); // metoda de LifeCycle din Class Base Components -> componentDidMount
+const FacultiesPage = lazy(() => import('./pages/faculties/FacultiesPage'))
+const FacultyPage = lazy(() => import('./pages/faculties/faculty/FacultyPage'))
+const FacultyDescription = lazy( () => import('./pages/faculties/faculty/components/FacultyDescription'))
+const FacultyHistory = lazy( () => import('./pages/faculties/faculty/components/FacultyHistory'))
 
-  // useEffect(() => {
-  //   console.log(value);
-  //   console.log("Updating phase: same when componentDidUpdate runs");
-  // }, [value]); //-> metodei de LifeCycle din Class Based Components -> componentDidUpdate
+// import FacultiesPage from './pages/FacultiesPage'
+// import FacultyPage from './pages/FacultyPage'
+// import FacultyDescription from './pages/universities/components/Faculties/FacultyDescription'
+// import FacultyHistory from './pages/universities/components/Faculties/FacultyHistory'
 
-  // useEffect(() => {
-  //   console.log("Mouting phase: same when componentDidMount runs");
+const App = () => {
 
-  //   return () => {
-  //     console.log("Unmounting phase");
-  //   };
-  // }, []); // metoda de LifeCycle din Class Base Components -> componentWillUnmount
+  // const object = Object.freeze({
+  //   name: 'Sergiu',
+  //   age: 25
+  // })
+
+  // object.name = 'Alex'
+  // object.zipcode = '500500'
+  // console.log(object)
 
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<SharedLayout />}>
-          <Route index element={<Homepage />}></Route>
-          <Route path="faculties" element={<FacultiesPage />} />
-          <Route path="faculties/:id" element={<FacultyPage />}>
+        <Route path='/' element={<SharedLayout />}>
+          <Route index element={<UniversitiesPage />}></Route>
+          <Route path='faculties' element={<FacultiesPage />} />
+          <Route path='faculties/:id' element={<FacultyPage />}>
             <Route index element={<FacultyDescription />} />
-            <Route path="description" element={<FacultyDescription />} />
-            <Route path="history" element={<FacultyHistory />} />
+            <Route path='description' element={<FacultyDescription />} />
+            <Route path='history' element={<FacultyHistory />} />
           </Route>
+          <Route path='*' element={<NotFoundPage />} />
         </Route>
-        <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </BrowserRouter>
-    // <main className="App">
-    //   <Sidebar />
-    //   <section className="container">
-    //     <University />
-    //     <Tutors />
-    //     <Cities />
-    //   </section>
-    // </main>
-  );
+  )
 }
 
-// https://stackblitz.com/edit/react-cn3mtn?file=index.js -> Exemplu
-// https://react-icons.github.io/react-icons/ -> icon-uri
-// https://emotion.sh/docs/introduction -> asemanatoare cu styled-components -> css in fisiere JS
-
-// lectia 7
-// https://www.freecodecamp.org/news/how-to-use-the-usestate-and-useeffect-hooks-in-your-project/
-// https://medium.com/@asiandigitalhub/common-use-cases-for-react-js-useeffect-88385a884cf6#:~:text=Let's%20explore%20some%20of%20the,using%20useEffect%20in%20React%20JS.&text=One%20of%20the%20most%20frequent,state%20with%20the%20retrieved%20data.
-// https://youtu.be/-yIsQPp31L0?si=h0mJ32GVB6AibBTe
-
-// lectia 9
-// https://www.geeksforgeeks.org/difference-between-navlink-an-link/ -> dif intre link si navlink
-// https://medium.com/@stheodorejohn/useparams-hook-in-react-router-a-real-world-example-493848f7b7
-// https://stackademic.com/blog/practical-steps-on-how-to-apply-the-useparams-hook-of-react-router-5cd43a2106b2
-// documentatie context -> https://react.dev/reference/react/createContext
-
-// lectia 11
-// https://www.youtube.com/watch?v=_shA5Xwe8_4&ab_channel=Fireship
-// https://react-redux.js.org/tutorials/quick-start
-// exemplu counter -> https://codesandbox.io/p/sandbox/github/reduxjs/redux-essentials-counter-example/tree/master/?file=%2Fsrc%2Fapp%2Fstore.js%3A5%2C3-7%2C5&from-embed
-// https://chromewebstore.google.com/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd?hl=en
+export default App
