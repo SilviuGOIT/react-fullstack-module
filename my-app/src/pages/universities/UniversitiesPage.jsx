@@ -10,10 +10,6 @@ function UniversitiesPage() {
     return (
         <>
             <University />
-            <label >
-                <span>Color</span>
-                <input type="text" onChange={(e) => setColor(e.target.value)} />
-            </label>
             <Tutors />
             <Cities />
             <Faculties/>

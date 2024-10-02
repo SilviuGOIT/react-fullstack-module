@@ -3,7 +3,8 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import SharedLayout from "./pages/SharedLayout";
 import UniversitiesPage from "./pages/universities/UniversitiesPage";
 import NotFoundPage from "./pages/NotFoundPage";
-import { lazy } from "react";
+import { lazy, useEffect } from "react";
+import { persistor } from "./redux/store";
 
 // Importurile cu lazy (dinamice), trebuie sa fie dupa cele normale
 
@@ -16,7 +17,16 @@ const FacultyHistory = lazy(() =>
   import("./pages/faculties/faculty/components/FacultyHistory")
 );
 
+// import FacultiesPage from './pages/FacultiesPage'
+// import FacultyPage from './pages/FacultyPage'
+// import FacultyDescription from './pages/universities/components/Faculties/FacultyDescription'
+// import FacultyHistory from './pages/universities/components/Faculties/FacultyHistory'
+
 const App = () => {
+  useEffect(() => {
+    persistor.purge();
+  }, []);
+
   return (
     <BrowserRouter>
       <Routes>
@@ -36,9 +46,3 @@ const App = () => {
 };
 
 export default App;
-
-//lectia-13
-//https://redux-toolkit.js.org/api/createAsyncThunk
-//https://medium.com/@bremarotta/redux-toolkit-createasyncthunk-829e139ea623
-//https://www.youtube.com/watch?v=VQgliO57b40&ab_channel=CodingAddict
-//https://www.npmjs.com/package/redux-persist

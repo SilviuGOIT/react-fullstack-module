@@ -1,10 +1,11 @@
-import { configureStore } from "@reduxjs/toolkit";
+import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import { facultiesSearchTermReducer } from "./slices/facultiesSearchTermSlice";
 import { facultiesReducer } from "./slices/facultiesSlice";
 import { tutorsReducer } from "./slices/tutorsSlice";
 import { citiesReducer } from "./slices/citiesSlice";
-import { persistStore } from "redux-persist";
+import { persistReducer, persistStore } from "redux-persist";
 import storage from "redux-persist/lib/storage";
+import { tutorsFilterReducer } from "./slices/tutorsFilterSlice";
 
 // In store, pentru fiecare "particica" din state-ul aplicatiei, o sa asignam un reducer care se va ocupa exclusiv
 // de logica pentru acea particica
@@ -17,18 +18,28 @@ import storage from "redux-persist/lib/storage";
  * tutors: [...lista de tutori]
  * }
  */
+
 const persistConfig = {
   key: "root",
   storage,
 };
 
+const rootReducer = combineReducers({
+  cities: citiesReducer,
+  faculties: facultiesReducer,
+  facultiesSearchTerm: facultiesSearchTermReducer,
+  tutors: tutorsReducer,
+  tutorsFilter: tutorsFilterReducer,
+});
+
+const persistedReducer = persistReducer(persistConfig, rootReducer);
+
 export const store = configureStore({
-  reducer: {
-    cities: citiesReducer,
-    faculties: facultiesReducer,
-    facultiesSearchTerm: facultiesSearchTermReducer,
-    tutors: tutorsReducer,
-  },
+  reducer: persistedReducer,
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware({
+      serializableCheck: false,
+    }),
 });
 
 export const persistor = persistStore(store);

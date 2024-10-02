@@ -26,6 +26,14 @@
       "email": "s@v.com",
       "city": "Valcea",
       "role": "Member"
+    },
+    {
+      "firstName": "aaa",
+      "lastName": "sdfgh",
+      "telephone": "23213",
+      "email": "a@a",
+      "city": "asda",
+      "id": 3
     }
   ],
   "cities": [

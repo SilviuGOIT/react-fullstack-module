@@ -1,4 +1,5 @@
 import PropTypes from "prop-types";
+import React from "react";
 import styles from "./SearchBar.module.css";
 import { HiSearch } from "react-icons/hi";
 
@@ -19,7 +20,7 @@ const SearchBar = ({ handleChange, placeholder, searchTerm }) => {
 };
 
 SearchBar.propTypes = {
-  searchTerm: PropTypes.object,
+  searchTerm: PropTypes.string,
   placeholder: PropTypes.string.isRequired,
   handleChange: PropTypes.func.isRequired,
 };
