@@ -17,6 +17,15 @@
       "email": "john@smith.com",
       "city": "New York",
       "role": "Member"
+    },
+    {
+      "id": 2,
+      "firstName": "Silviu",
+      "lastName": "Barbu",
+      "telephone": "23232",
+      "email": "s@v.com",
+      "city": "Valcea",
+      "role": "Member"
     }
   ],
   "cities": [

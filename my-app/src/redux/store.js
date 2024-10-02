@@ -1,10 +1,10 @@
-import {configureStore} from '@reduxjs/toolkit';
-import { facultiesSearchTermReducer } from './slices/facultiesSearchTermSlice';
-import { facultiesReducer } from './slices/facultiesSlice';
-import { tutorsReducer } from './slices/tutorsSlice';
-import { citiesReducer } from './slices/citiesSlice';
-import {persistReducer, persistStore} from 'redux-persist'
-import storage from 'redux-persist/lib/storage'
+import { configureStore } from "@reduxjs/toolkit";
+import { facultiesSearchTermReducer } from "./slices/facultiesSearchTermSlice";
+import { facultiesReducer } from "./slices/facultiesSlice";
+import { tutorsReducer } from "./slices/tutorsSlice";
+import { citiesReducer } from "./slices/citiesSlice";
+import { persistStore } from "redux-persist";
+import storage from "redux-persist/lib/storage";
 
 // In store, pentru fiecare "particica" din state-ul aplicatiei, o sa asignam un reducer care se va ocupa exclusiv
 // de logica pentru acea particica
@@ -17,27 +17,18 @@ import storage from 'redux-persist/lib/storage'
  * tutors: [...lista de tutori]
  * }
  */
-
 const persistConfig = {
-    key: 'root',
-    storage
-}
+  key: "root",
+  storage,
+};
 
-const persistedCities = persistReducer(persistConfig, citiesReducer)
-const persistedFaculties = persistReducer(persistConfig, facultiesReducer)
-const persistedFacultiesSearchTerm = persistReducer(persistConfig, facultiesSearchTermReducer)
-const persistedTutors = persistReducer(persistConfig, tutorsReducer)
+export const store = configureStore({
+  reducer: {
+    cities: citiesReducer,
+    faculties: facultiesReducer,
+    facultiesSearchTerm: facultiesSearchTermReducer,
+    tutors: tutorsReducer,
+  },
+});
 
-const store = configureStore({
-    reducer: {
-        cities: persistedCities,
-        faculties: persistedFaculties,
-        facultiesSearchTerm: persistedFacultiesSearchTerm,
-        tutors: persistedTutors
-    }
-})
-
-const persistor = persistStore(store);
-
-export default persistor;
-
+export const persistor = persistStore(store);

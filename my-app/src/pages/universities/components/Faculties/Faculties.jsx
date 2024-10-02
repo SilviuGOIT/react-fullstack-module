@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
 
 import facultiesService from "../../../common/service/facultiesService";
@@ -29,7 +29,9 @@ const Faculties = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState("");
 
-  const list = useSelector((state) => state.faculties);
+  const list = useSelector((state) => {
+    state.faculties.items;
+  });
   const searchTerm = useSelector((state) => state.facultiesSearchTerm);
   const dispatch = useDispatch();
 
@@ -150,7 +152,7 @@ const Faculties = () => {
     const editedItem = yourNextList.find((el) => el.id === selectedItem.id);
 
     try {
-      dispatch(editFaculty(editedItem))
+      dispatch(editFaculty(editedItem));
       // await facultiesService.update(editedItem.id, editedItem);
       setError("");
       setIsEditModalOpen(false);
@@ -188,7 +190,6 @@ const Faculties = () => {
   }
 
   async function handleAddItem(item) {
-
     if (list.find((el) => el.name === item.name)) {
       setError("A faculty with the same name already exists.");
 
