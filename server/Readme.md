@@ -25,6 +25,10 @@ Create a db.json file with some data
 ```
 json-server --watch -p 5173 db.json
 ```
+// with auth
+```
+json-server --watch -p 4001 db.json -m ./node_modules/json-server-auth
+```
 
 Now if you go to http://localhost:3001/tutors/1, you'll get
 

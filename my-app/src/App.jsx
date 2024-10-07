@@ -5,6 +5,7 @@ import UniversitiesPage from "./pages/universities/UniversitiesPage";
 import NotFoundPage from "./pages/NotFoundPage";
 import { lazy, useEffect } from "react";
 import { persistor } from "./redux/store";
+import LoginPage from "./pages/LoginPage";
 
 // Importurile cu lazy (dinamice), trebuie sa fie dupa cele normale
 
@@ -31,6 +32,7 @@ const App = () => {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<SharedLayout />}>
+          <Route path="login" element={<LoginPage />} />
           <Route index element={<UniversitiesPage />}></Route>
           <Route path="faculties" element={<FacultiesPage />} />
           <Route path="faculties/:id" element={<FacultyPage />}>
@@ -46,3 +48,7 @@ const App = () => {
 };
 
 export default App;
+
+// https://dev.to/supertokens/oauth-vs-jwt-json-web-tokens-an-in-depth-comparison-5gnp
+// https://www.npmjs.com/package/jsonwebtoken
+// https://blog.netcetera.com/how-to-create-guarded-routes-for-your-react-app-d2fe7c7b6122

@@ -1,6 +1,7 @@
 import axios from "axios";
+import setAxiosDefault from "./config";
 
-axios.defaults.baseURL = "http://localhost:4001/";
+setAxiosDefault();
 
 async function get() {
   try {

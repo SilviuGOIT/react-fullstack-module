@@ -26,14 +26,6 @@
       "email": "s@v.com",
       "city": "Valcea",
       "role": "Member"
-    },
-    {
-      "firstName": "aaa",
-      "lastName": "sdfgh",
-      "telephone": "23213",
-      "email": "a@a",
-      "city": "asda",
-      "id": 3
     }
   ],
   "cities": [
@@ -66,6 +58,18 @@
       "name": "Faculty",
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
       "history": "What a rich history"
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "email": "test@test.com",
+      "password": "bestPassw0rd"
+    },
+    {
+      "email": "test1@test.com",
+      "password": "$2a$10$LwjMric6b7ftUpENgdEZTeRwdRs3itav.rS8XFZRqOjRKB.sVbVc6",
+      "id": 2
     }
   ]
 }

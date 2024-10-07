@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import styles from "./Tutors.module.css";
 import Icon from "../../../common/components/Icon/Icon";
 import AddTutor from "./AddTutor/AddTutor";
@@ -97,19 +97,22 @@ export default function Tutors() {
     }
 
     return items.map((el) => {
-      const name = `${el.firstName} ${el.lastName}`;
+      if (el !== null) {
+        console.log(el);
+        const name = `${el.firstName} ${el.lastName}`;
 
-      return (
-        <div key={el.id} className={styles.tutorsListItem}>
-          <div>{name}</div>
-          <div className={styles.address}>
-            <span>{el.email}</span>
-            <span>{el.telephone}</span>
-            <span>{el.location}</span>
+        return (
+          <div key={el.id} className={styles.tutorsListItem}>
+            <div>{name}</div>
+            <div className={styles.address}>
+              <span>{el.email}</span>
+              <span>{el.telephone}</span>
+              <span>{el.location}</span>
+            </div>
+            <div>{el.role}</div>
           </div>
-          <div>{el.role}</div>
-        </div>
-      );
+        );
+      }
     });
   }
 

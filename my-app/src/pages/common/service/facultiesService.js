@@ -1,43 +1,44 @@
-import axios from "axios"
+import axios from "axios";
+import setAxiosDefault from "./config";
 
-axios.defaults.baseURL = 'http://localhost:4001/';
+setAxiosDefault();
 
 async function get() {
-    const response = await axios.get('/faculties')
+  const response = await axios.get("/faculties");
 
-    return response.data
+  return response.data;
 }
 
 async function getItem(id) {
-    const response = await axios.get(`/faculties/${id}`)
+  const response = await axios.get(`/faculties/${id}`);
 
-    return response.data
+  return response.data;
 }
 
 async function create(item) {
-    const response = await axios.post(`/faculties/`, item)
+  const response = await axios.post(`/faculties/`, item);
 
-    return response.data
+  return response.data;
 }
 
 async function remove(itemId) {
-    const response = await axios.delete(`/faculties/${itemId}`)
+  const response = await axios.delete(`/faculties/${itemId}`);
 
-    return response.data
+  return response.data;
 }
 
 async function update(itemId, item) {
-    const response = await axios.put(`/faculties/${itemId}`, item)
+  const response = await axios.put(`/faculties/${itemId}`, item);
 
-    return response.data
+  return response.data;
 }
 
 const facultiesService = {
-    get,
-    getItem,
-    create,
-    remove,
-    update
-}
+  get,
+  getItem,
+  create,
+  remove,
+  update,
+};
 
 export default facultiesService;
