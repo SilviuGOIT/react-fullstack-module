@@ -3,7 +3,6 @@ axios.defaults.baseURL = "http://localhost:4001";
 
 async function login(payload) {
   const response = await axios.post("/login", payload);
-  console.log(response.data);
   return response;
 }
 

@@ -7,17 +7,6 @@ import { persistReducer, persistStore } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 import { tutorsFilterReducer } from "./slices/tutorsFilterSlice";
 import { authReducer } from "./slices/authSlice";
-// In store, pentru fiecare "particica" din state-ul aplicatiei, o sa asignam un reducer care se va ocupa exclusiv
-// de logica pentru acea particica
-/**
- * OBIECTUL DE STATE VA FI:
- * {
- * cities: [...lista de orase],
- * faculties: [...lista de facultati],
- * facultiesSearchTerm: "",
- * tutors: [...lista de tutori]
- * }
- */
 
 const persistConfig = {
   key: "root",

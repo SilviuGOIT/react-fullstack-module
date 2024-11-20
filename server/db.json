@@ -70,6 +70,16 @@
       "email": "test1@test.com",
       "password": "$2a$10$LwjMric6b7ftUpENgdEZTeRwdRs3itav.rS8XFZRqOjRKB.sVbVc6",
       "id": 2
+    },
+    {
+      "email": "a@a",
+      "password": "$2a$10$vVXptIJs4boMTkBUh/iLlOROmsxSqAumYYaB5yX0IaoHQgyL75.xG",
+      "id": 3
+    },
+    {
+      "email": "b@b",
+      "password": "$2a$10$TEUb6T3mx1nQFHzD31c4Q.yyX0E8wGBj7ZjGm1a4cxVBa2V1ULfbu",
+      "id": 4
     }
   ]
 }

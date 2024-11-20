@@ -6,6 +6,7 @@ import NotFoundPage from "./pages/NotFoundPage";
 import { lazy, useEffect } from "react";
 import { persistor } from "./redux/store";
 import LoginPage from "./pages/LoginPage";
+import PrivateRoute from "./redux/PrivateRoute";
 
 // Importurile cu lazy (dinamice), trebuie sa fie dupa cele normale
 
@@ -18,11 +19,6 @@ const FacultyHistory = lazy(() =>
   import("./pages/faculties/faculty/components/FacultyHistory")
 );
 
-// import FacultiesPage from './pages/FacultiesPage'
-// import FacultyPage from './pages/FacultyPage'
-// import FacultyDescription from './pages/universities/components/Faculties/FacultyDescription'
-// import FacultyHistory from './pages/universities/components/Faculties/FacultyHistory'
-
 const App = () => {
   useEffect(() => {
     persistor.purge();
@@ -34,7 +30,14 @@ const App = () => {
         <Route path="/" element={<SharedLayout />}>
           <Route path="login" element={<LoginPage />} />
           <Route index element={<UniversitiesPage />}></Route>
-          <Route path="faculties" element={<FacultiesPage />} />
+          <Route
+            path="faculties"
+            element={
+              <PrivateRoute>
+                <FacultiesPage />
+              </PrivateRoute>
+            }
+          />
           <Route path="faculties/:id" element={<FacultyPage />}>
             <Route index element={<FacultyDescription />} />
             <Route path="description" element={<FacultyDescription />} />
@@ -48,7 +51,3 @@ const App = () => {
 };
 
 export default App;
-
-// https://dev.to/supertokens/oauth-vs-jwt-json-web-tokens-an-in-depth-comparison-5gnp
-// https://www.npmjs.com/package/jsonwebtoken
-// https://blog.netcetera.com/how-to-create-guarded-routes-for-your-react-app-d2fe7c7b6122
